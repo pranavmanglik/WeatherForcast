@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+  <title>GoodDay</title>
+</head>
+
+<body
+  class="bg-[url('./images/bg_image.jpg')] bg-center bg-cover bg-no-repeat min-h-screen flex flex-col gap-5 items-center p-10">
+  <div class="w-fit flex items-center">
+    <h1 class="text-2xl font-bold text-white" style="font-size: 3rem;margin-bottom: 20%;">GoodDay</h1>
+  </div>
+
+  <div class="w-full flex justify-center mb-10">
+    <div class="bg-white/20 p-8 rounded-lg shadow-lg" style="color: white; padding: 4%;">
+      Welcome to GoodDay, the ultimate weather companion designed to keep you informed and prepared for any weather
+      condition. With GoodDay, you get access to real-time, hyper-local weather updates right from your smartphone. Our
+      app offers a sleek and user-friendly interface that presents current temperatures, wind speeds, humidity levels,
+      and detailed weather descriptions in a visually appealing manner.
+      What sets GoodDay apart is its commitment to delivering accurate and timely information with a touch of elegance.
+      Our advanced weather engine ensures that you receive precise forecasts tailored to your location, helping you plan
+      your day with confidence. The app’s stunning graphics and intuitive design make it easy to navigate and understand
+      the weather data, whether you’re checking the weather for your daily commute or planning an outdoor adventure.
+      But GoodDay doesn’t stop at just forecasts. It also features insightful weather trends, so you can track changes
+      and plan ahead. The interactive elements allow you to explore different weather scenarios and see how they might
+      affect your plans.
+      Experience the perfect blend of functionality and aesthetics with GoodDay—where accurate weather meets beautiful
+      design. Stay ahead of the weather, make informed decisions, and embrace every day with confidence, knowing that
+      GoodDay has you covered!
+    </div>
+  </div>
+
+  <form action="" class="flex gap-2 w-4/5 md:w-3/5 lg:w-[35%] items-center justify-center" method="get">
+    <input type="text" name="city" required placeholder="Enter a city"
+      class="py-2 px-3 w-full rounded-full bg-white text-white text-lg outline ease-in-out duration-500 outline-2 outline-white/70 backdrop-blur-lg focus:bg-white/20" />
+    <button type="submit">
+      <ion-icon class="text-white text-2xl p-3 font-black rounded-full bg-white/50" name="search"></ion-icon>
+    </button>
+  </form>
+
+  <div
+    class="flex p-5 w-4/5 bg-white/20 justify-between rounded-3xl backdrop-blur-sm text-white shadow-2xl cursor-pointer ease-in-out duration-500 md:w-3/5 lg:w-[35%]">
+    <div id="left" class="flex flex-col">
+      <div id="top" class="mb-6">
+        <p class="font-bold text-5xl">{{ temperature }}°C</p>
+        <p class="font-semibold">Now</p>
+      </div>
+      <p class="font-semibold text-xl">{{ city }}, {{ country }}</p>
+    </div>
+    <div id="right">
+      <img src="{% static 'images/113.png' %}" alt="weather image" class="w-10 h-10" />
+    </div>
+  </div>
+  <div class="flex w-full justify-between bg-[#00000] p-3 backdrop-blur-2xl rounded-xl md:w-3/5 lg:w-[35%]">
+    <div id="left" class="flex flex-col justify-start">
+      <img src="{{ icon_url }}" alt="" />
+      <p class="font-bold text-4xl text-white">{{ weather }}</p>
+      <p class="text-semibold text-white">{{ weather_description }}</p>
+    </div>
+    <div id="right" class="w-1/2 flex flex-col space-y-2">
+      <div class="flex w-full justify-around bg-white/30 p-1 rounded-lg items-center gap-6">
+        <div class="">
+          <p class="font-bold text-2xl text-right" style="color: white;">
+            {{ temperature }} °C
+          </p>
+          <p class="text-sm text-white text-right">Temperature</p>
+        </div>
+      </div>
+      <div class="flex w-full justify-around bg-white/30 p-1 rounded-lg items-center gap-6">
+        <div class="">
+          <p class="font-bold text-2xl text-right" style="color: white;">
+            {{ wind_speed }} m/s
+          </p>
+          <p class="text-sm text-white text-right">Wind Speed</p>
+        </div>
+      </div>
+      <div class="flex w-full justify-around bg-white/30 p-1 rounded-lg items-center gap-6">
+        <div class="">
+          <p class="font-bold text-2xl text-right" style="color: white;">
+            {{ humidity }} %
+          </p>
+          <p class="text-sm text-white text-right">Humidity</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
